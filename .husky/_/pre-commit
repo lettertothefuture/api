@@ -1,0 +1,3 @@
+pnpm unit
+pnpm lint-staged
+git update-index --again
