@@ -2,5 +2,5 @@ import { Environment } from './environment';
 
 export const ProductionEnvironment = {
   name: 'Production',
-  isDev: false
+  isDev: false,
 } satisfies Environment;

@@ -37,7 +37,9 @@ export class Result<Success, Failure> {
     return new Result(undefined, failure);
   }
 
-  static combine(...results: Result<any, any>[]): Result<any[] | undefined, any[] | undefined> {
+  static combine(
+    ...results: Result<any, any>[]
+  ): Result<any[] | undefined, any[] | undefined> {
     const successes: any[] = [];
     const failures: any[] = [];
 

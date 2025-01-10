@@ -2,5 +2,5 @@ import { Environment } from './environment';
 
 export const LocalEnvironment = {
   name: 'Local',
-  isDev: true
+  isDev: true,
 } satisfies Environment;

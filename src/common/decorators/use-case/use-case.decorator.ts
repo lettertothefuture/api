@@ -13,12 +13,10 @@ function isUseCase(target: any): target is UseCaseExecutor<any, any> {
   return typeof target.prototype.execute === 'function';
 }
 
-export function UseCase
-  <T extends { new (...args: any): UseCaseExecutor<any, any> }>(
-    method: Method, 
-    url: string
-  ) {
-  return function(target: T) {
+export function UseCase<
+  T extends { new (...args: any): UseCaseExecutor<any, any> },
+>(method: Method, url: string) {
+  return function (target: T) {
     if (!isUseCase(target)) {
       throw new Error('ONLY USE CASES ARE PERMITTED!');
     }
@@ -39,5 +37,5 @@ export function UseCase
       variables,
       useCase: target,
     });
-  }
+  };
 }
