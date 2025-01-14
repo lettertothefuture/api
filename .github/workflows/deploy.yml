@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: node-app-repo
   ECS_SERVICE: node-service
   ECS_CLUSTER: node-cluster
-  ECS_TASK_DEFINITION: node-task
+  ECS_TASK_DEFINITION: node-task:3
   CONTAINER_NAME: node-container
 
 jobs:
