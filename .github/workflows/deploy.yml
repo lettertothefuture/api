@@ -50,13 +50,14 @@ jobs:
       - name: Update ECS service with new image
         run: |
           NEW_IMAGE="361769567632.dkr.ecr.us-east-2.amazonaws.com/node-app-repo:latest"
-          FAMILY_NAME="node-task"  
+          FAMILY_NAME="node-task" 
           CLUSTER_NAME="node-cluster" 
-          SERVICE_NAME="node-service"  
+          SERVICE_NAME="node-service" 
 
-          TASK_DEFINITION=$(aws ecs describe-task-definition --task-definition $FAMILY_NAME)
-          NEW_TASK_DEFINITION=$(echo $TASK_DEFINITION | jq ".taskDefinition.containerDefinitions[0].image=\"$NEW_IMAGE\"")
+          TASK_DEFINITION_JSON=$(aws ecs describe-task-definition --task-definition $FAMILY_NAME)
 
-          NEW_TASK_DEF_ARN=$(echo $NEW_TASK_DEFINITION | aws ecs register-task-definition --cli-input-json file://- --query 'taskDefinition.taskDefinitionArn' --output text)
+          UPDATED_TASK_DEFINITION=$(echo $TASK_DEFINITION_JSON | jq ".taskDefinition.containerDefinitions[0].image=\"$NEW_IMAGE\"")
+
+          echo "$UPDATED_TASK_DEFINITION" | aws ecs register-task-definition --cli-input-json file://- --query 'taskDefinition.taskDefinitionArn' --output text
 
           aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --task-definition $NEW_TASK_DEF_ARN
