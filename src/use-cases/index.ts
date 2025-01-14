@@ -1,4 +1,5 @@
-import './health-check/health-check.usecase';
+import './health-check/health-check-usecase';
+import './save-letter/save-letter-usecase';
 
 import { useCases } from '@/common/decorators';
 import { FastifyInstance } from 'fastify';
@@ -34,7 +35,7 @@ export function registerUseCases(app: FastifyInstance) {
         const { responseStatus, ...response } = result.value();
 
         if (!response) {
-          reply.status(responseStatus).send();
+          reply.status(responseStatus);
         } else {
           reply.status(responseStatus).send({
             data: response,

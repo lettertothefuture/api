@@ -1,6 +1,8 @@
 export interface Common {
   port: number;
   host: string;
+  region: string;
+  letterBucket: string;
 }
 
 export interface Environment {

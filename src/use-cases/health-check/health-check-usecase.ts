@@ -1,6 +1,6 @@
 import { injectable } from 'tsyringe';
 import { UseCase, UseCaseExecutor } from '@/common/decorators';
-import { HealthCheckOutput } from './health-check.output';
+import { HealthCheckOutput } from './health-check-output';
 import { HttpError } from '@/common/errors';
 import { Result } from '@/common/utils';
 

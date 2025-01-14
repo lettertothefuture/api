@@ -1,6 +1,7 @@
 import { CurrentEnvironment } from '@/environment';
 import { registerUseCases } from '@/use-cases';
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 
 const app = fastify({
   logger: CurrentEnvironment.isDev
@@ -15,6 +16,8 @@ const app = fastify({
       }
     : true,
 });
+
+app.register(cors);
 
 registerUseCases(app);
 

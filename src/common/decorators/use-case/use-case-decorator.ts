@@ -1,4 +1,4 @@
-import { UseCaseExecutor } from './use-case.executor';
+import { UseCaseExecutor } from './use-case-executor';
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
