@@ -20,10 +20,7 @@ jobs:
     - name: Pushing to hub
       run: |
         docker login -u wilsonnascimentocosta98391 -p dckr_pat_1J7Ivqo3mFbMAEegxUg60elAl50
-        docker push wilsonnascimentocosta98391/applicationaws:latest
-        echo "wilsonnascimentocosta98391/applicationaws:latest" >> $GITHUB_OUTPUT
-
-            - name: Docker Login
+        docker push wilsonnascimentocosta98391/applicationaws:latest       
 
 # name: Deploy to Amazon ECS
 
