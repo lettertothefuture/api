@@ -1,7 +1,6 @@
 name: Build Publish image to Docker Hub
 
 on:
-  [worflow]
   push:
     branches:
       - master
