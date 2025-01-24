@@ -19,6 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag wilsonnascimentocosta98391/applicationaws:latest
     - name: Pushing to hub
       run: |
+        docker login -u wilsonnascimentocosta98391 -p dckr_pat_1J7Ivqo3mFbMAEegxUg60elAl50
         docker push wilsonnascimentocosta98391/applicationaws:latest
         echo "wilsonnascimentocosta98391/applicationaws:latest" >> $GITHUB_OUTPUT
 
