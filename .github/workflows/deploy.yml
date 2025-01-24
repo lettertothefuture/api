@@ -67,7 +67,7 @@
 #           wait-for-service-stability: true
 
 
-name Build Publish image to Docker Hub
+name: Build Publish image to Docker Hub
 
 on:
   [worflow]
