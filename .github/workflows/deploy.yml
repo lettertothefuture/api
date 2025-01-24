@@ -1,3 +1,27 @@
+name: Build Publish image to Docker Hub
+
+on:
+  [worflow]
+  push:
+    branches:
+      - master
+  
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build the Docker Image
+      uses: actions/checkout@v4
+      run: docker build . --file Dockerfile --tag wilsonnascimentocosta98391/applicationaws:latest
+    - name: Pushing to hub
+      run: |
+        docker push wilsonnascimentocosta98391/applicationaws:latest
+        echo "wilsonnascimentocosta98391/applicationaws:latest" >> $GITHUB_OUTPUT
 # name: Deploy to Amazon ECS
 
 # on:
@@ -67,27 +91,3 @@
 #           wait-for-service-stability: true
 
 
-name: Build Publish image to Docker Hub
-
-on:
-  [worflow]
-  push:
-    branches:
-      - master
-  
-  pull_request:
-    branches:
-      - master
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Build the Docker Image
-      uses: actions/checkout@v4
-      run: docker build . --file Dockerfile --tag wilsonnascimentocosta98391/applicationaws:latest
-    - name: Pushing to hub
-      run: |
-        docker push wilsonnascimentocosta98391/applicationaws:latest
-        echo "wilsonnascimentocosta98391/applicationaws:latest" >> $GITHUB_OUTPUT
